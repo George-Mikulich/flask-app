@@ -1,4 +1,3 @@
-LABEL version=2.0
 # build stage
 # Setting the base image
 FROM python:3.11-slim as build
