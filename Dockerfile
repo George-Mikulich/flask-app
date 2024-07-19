@@ -15,17 +15,20 @@ RUN mkdir /app && chown python:python /app
 WORKDIR /app
 
 # Copying app source code into the working directory
+RUN mkdir templates
+COPY templates ./templates
 COPY app.py .
+COPY initdb.py .
 
 # Ensuring the processes running inside the container will be executed
 # in non-privileged mode
 USER 1000
 
-FROM python:3.11-slim
+ENV FLASK_APP=app
+ENV FLASK_ENV=development
+#ENV PGUSER
+#ENV PGPASSWORD -------- must be extracted from secret specified in Pod definition
 
-COPY --from=build /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+CMD ["python", "initdb.py"]
 
-COPY --from=build /app .
-
-# Executing app
-CMD ["python", "app.py"]
+CMD ["flask", "run"]
