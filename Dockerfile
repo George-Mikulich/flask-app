@@ -20,6 +20,8 @@ COPY templates ./templates
 COPY app.py .
 COPY initdb.py .
 
+RUN python initdb.py
+
 # Ensuring the processes running inside the container will be executed
 # in non-privileged mode
 USER 1000
@@ -28,7 +30,5 @@ ENV FLASK_APP=app
 ENV FLASK_ENV=development
 #ENV PGUSER
 #ENV PGPASSWORD -------- must be extracted from secret specified in Pod definition
-
-RUN python initdb.py
 
 CMD ["flask", "run"]
