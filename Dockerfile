@@ -29,6 +29,6 @@ ENV FLASK_ENV=development
 #ENV PGUSER
 #ENV PGPASSWORD -------- must be extracted from secret specified in Pod definition
 
-CMD ["python", "initdb.py"]
+RUN python initdb.py
 
 CMD ["flask", "run"]
