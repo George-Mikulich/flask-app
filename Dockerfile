@@ -20,8 +20,6 @@ COPY templates ./templates
 COPY app.py .
 COPY initdb.py .
 
-RUN python initdb.py
-
 # Ensuring the processes running inside the container will be executed
 # in non-privileged mode
 USER 1000
