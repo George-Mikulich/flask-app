@@ -1,6 +1,6 @@
 # build stage
 # Setting the base image
-FROM python:3.11-slim as build
+FROM python:3.11-slim AS build
 
 # Creating a non-privileged user named 'python'
 RUN groupadd -g 1000 python && \
