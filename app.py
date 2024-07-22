@@ -50,5 +50,5 @@ def secret():
     return "<h1 style='color:green'>You found something</h1>"
 
 @app.route('/secret2')
-def secret():
+def secret2():
     return "<h1 style='color:green'>2nd version</h1>"
