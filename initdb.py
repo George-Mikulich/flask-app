@@ -2,7 +2,7 @@ import os
 import psycopg2 # type: ignore
 
 conn = psycopg2.connect(
-        host="custom-psql.postgres-operator.svc",
+        host="10.0.15.3",
         database="flask_db",
         user=os.environ['PGUSER'],
         password=os.environ['PGPASSWORD'])
