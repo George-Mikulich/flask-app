@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 def get_db_connection():
-    conn = psycopg2.connect(host='hippo-pods.postgres-operator.svc',
+    conn = psycopg2.connect(host='10.0.15.3',
                             database='flask_db',
                             user=os.environ['PGUSER'],
                             password=os.environ['PGPASSWORD'])
