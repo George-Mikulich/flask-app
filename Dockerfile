@@ -24,4 +24,4 @@ USER 1000
 ENV FLASK_APP=app
 ENV FLASK_ENV=development
 
-CMD ["flask", "run"]
+CMD ["python", "app.py"]
